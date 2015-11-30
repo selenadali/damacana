@@ -10,27 +10,28 @@ namespace damacana.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
-        {
-            Product product1 = new Product()
+        public static List<Product> products = new List<Product>(){
+            new Product()
             {
                 Id = 1,
                 Name = "Erikli",
                 Price = (decimal)9.50,
-            };
-            Product product2 = new Product()
+            },
+            new Product()
             {
                 Id = 2,
                 Name = "Hayat",
                 Price = (decimal)7.90,
-            };
+            }
+        };
 
-            List<Product> products = new List<Product>();
-            products.Add(product1);
-            products.Add(product2);
+       
+        public ActionResult Index()
+        {
             return View(products);
         }
-        [HttpPost]
+
+       
         public ActionResult AddProduct(){
             Product product = new Product()
             {
@@ -40,13 +41,13 @@ namespace damacana.Controllers
             return View(product);
         }
 
+ 
         [HttpPost]
         public ActionResult SaveProduct(Product product)
         {
-            ViewBag.Message = "Your application description page.";
+            products.Add(product);
             return View(product);
         }
-
 
         public ActionResult About()
         {

@@ -5,12 +5,11 @@ using System.Web;
 
 namespace damacana.Models
 {
-    public class Product
+    public class User
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
-  
+        public virtual ICollection<Cart> Carts { get; set; }
+        public virtual ICollection<Purchase> Purchases { get; set; }
     }
-    
 }

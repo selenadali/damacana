@@ -1,15 +1,18 @@
 ﻿@using damacana.Models
 
 @model List<damacana.Models.Product>
+
 @{
     ViewBag.Title = "Home Page";
 }
 
+
+<a href="@Url.Action("AddProduct")"> Add New Product </a>
+
+
 <h2>
-    Add New Product
+  Products
 </h2>
-<form>
-    </form>
 @foreach (Product p in Model)
 {
     <h2>
@@ -18,4 +21,6 @@
     <p>
         @p.Price
     </p>
+    <input class="btn btn-default" type="button" value="Add Product to Cart">
+
 }
