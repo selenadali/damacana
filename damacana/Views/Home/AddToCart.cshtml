@@ -1,0 +1,26 @@
+﻿@model damacana.Models.Cart
+
+@{
+    ViewBag.Title = "AddToCart";
+}
+
+<h2>Add To Cart</h2>
+@using (Html.BeginForm("SaveToCart", "Home", FormMethod.Get))
+{
+    <div class="btn-group" role="group" aria-label="a">
+
+
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li> <a href="~/Home/SaveToCart">Dropdown link</a></li>
+                <li><a href="~/Home/SaveToCart">Dropdown link</a></li>
+             </ul>
+         </div>
+
+
+</div>
+}

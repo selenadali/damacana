@@ -49,17 +49,32 @@ namespace damacana.Controllers
             return View(product);
         }
 
-  /*       public static List<Product> cartproducts = new List<Product>(){
+        public static List<Product> cartproducts = new List<Product>(){
         };
         
+ 
 
-       [HttpPost]
-        public ActionResult AddCart(Product product)
+        public ActionResult AddToCart()
         {
-            product.Add(cartproducts);
+            Cart cart= new Cart()
+            {
+               
+            };
+            return View(cart);
+        }
+
+       [HttpGet]
+        public ActionResult SaveToCart(Product product)
+        {
+            cartproducts.Add(product);
             return View(products);
         }
-    */
+   
+
+        public ActionResult MyCart()
+        {
+             return View(cartproducts);
+        }
 
         public ActionResult About()
         {

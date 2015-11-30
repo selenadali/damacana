@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "SaveToCart";
+}
+
+<h2>SaveToCart</h2>
+
+<a href="@Url.Action("AddToCart")"> Add New Product To Cart</a>
+
+<div class="alert alert-success" role="alert">
+    Product Added To Cart 
+</div>
+
+Product Saved
+<a href="@Url.Action("MyCart")">
+    Go To Cart
+</a>
