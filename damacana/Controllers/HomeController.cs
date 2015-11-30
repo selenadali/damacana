@@ -30,6 +30,23 @@ namespace damacana.Controllers
             products.Add(product2);
             return View(products);
         }
+        [HttpPost]
+        public ActionResult AddProduct(){
+            Product product = new Product()
+            {
+                Name = "",
+                Price = (decimal)0
+            };
+            return View(product);
+        }
+
+        [HttpPost]
+        public ActionResult SaveProduct(Product product)
+        {
+            ViewBag.Message = "Your application description page.";
+            return View(product);
+        }
+
 
         public ActionResult About()
         {
