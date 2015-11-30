@@ -49,6 +49,18 @@ namespace damacana.Controllers
             return View(product);
         }
 
+  /*       public static List<Product> cartproducts = new List<Product>(){
+        };
+        
+
+       [HttpPost]
+        public ActionResult AddCart(Product product)
+        {
+            product.Add(cartproducts);
+            return View(products);
+        }
+    */
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
