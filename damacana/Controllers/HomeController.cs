@@ -10,6 +10,14 @@ namespace damacana.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Index()
+        {
+            carts.Add(cart1);
+            purchases.Add(purchase1);
+
+            return View(products);
+        }
+        
         public static List<Product> products = new List<Product>(){
             new Product()
             {
@@ -25,12 +33,31 @@ namespace damacana.Controllers
             }
         };
 
-       
-        public ActionResult Index()
+
+        public static List<Product> cartproducts = new List<Product>() { };
+
+        public static List<Cart> carts = new List<Cart>() { };
+
+        public static List<Purchase> purchases = new List<Purchase>() { };
+
+        Cart cart1 = new Cart()
+        {
+            Id = 0,
+            UserId = 1,
+            cartproducts = products,
+        };
+
+        Purchase purchase1 = new Purchase()
+        {
+            Id = 0,
+            UserId = 1,
+            TotalPrice = 0,
+            purchaselist = products,
+        };
+        public ActionResult ProductList()
         {
             return View(products);
         }
-
        
         public ActionResult AddProduct(){
             Product product = new Product()
@@ -41,17 +68,12 @@ namespace damacana.Controllers
             return View(product);
         }
 
- 
         [HttpPost]
         public ActionResult SaveProduct(Product product)
         {
             products.Add(product);
             return View(product);
         }
-
-        public static List<Product> cartproducts = new List<Product>(){
-
-        };
 
         public ActionResult AddToCart()
         {
@@ -62,21 +84,52 @@ namespace damacana.Controllers
             return View(cart);
         }
 
-       [HttpGet]
-        public ActionResult SaveToCart(Product product)
+        [HttpGet]
+        public ActionResult SaveToCart(string Name)
         {
+            Product product = new Product();
+            foreach (var pr in products)
+            {
+                if (pr.Name == Name)
+                {
+                    product.Name = pr.Name;
+                    product.Price = pr.Price;
+                    product.Id = pr.Id;
+                }
+            }
+
             cartproducts.Add(product);
-            return View(products);
+            return View(cartproducts);
         }
    
-
         public ActionResult MyCart()
         {
 
              return View(cartproducts);
         }
+/*
+       
+        public ActionResult SaveToCart(string name)
+        {
+            Product product = new Product();
 
+            foreach (var pr in products)
+            {
+                if (pr.Name == name)
+                {
+                    product.Name = pr.Name;
+                    product.Price = pr.Price;
+                    product.Id = pr.Id;
+                }
+            }
+        return View(product);
+        }
+        */
+        public ActionResult MyPurchase()
+        {
+            return View(purchases);
 
+        }
 
         decimal Total;
         [HttpGet]
@@ -91,6 +144,9 @@ namespace damacana.Controllers
 
             return View(Total);
         }
+
+
+       
 
 
         public ActionResult About()
