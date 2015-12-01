@@ -4,23 +4,37 @@
     ViewBag.Title = "AddToCart";
 }
 
-<h2>Add To Cart</h2>
-@using (Html.BeginForm("SaveToCart", "Home", FormMethod.Get))
-{
-    <div class="btn-group" role="group" aria-label="a">
+    <h2>Add To Cart</h2>
+
+@*
+
+    @using (Html.BeginForm("SaveToCart", "Home", FormMethod.Get))
+    {
+        @Html.DropDownList("Products", new SelectList(Model.Id), new { id = "SelectedProductList" })
+    }
+*@
+        @using (Html.BeginForm("SaveToCart", "Home", FormMethod.Get))
+        {
+            <div class="btn-group" role="group" aria-label="a">
 
 
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <li> <a href="~/Home/SaveToCart">Dropdown link</a></li>
-                <li><a href="~/Home/SaveToCart">Dropdown link</a></li>
-             </ul>
-         </div>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Product From Product List
+                    <span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu">
+                    <li> <a href="~/Home/SaveToCart"> @Html.DropDownListFor(x => x.Id, new { @class = "form-control" }) </a> </li>
+                    <li> <a href="~/Home/SaveToCart"> 2 </a> </li>
+                    <li> <a href="~/Home/SaveToCart"> 3 </a> </li>
+                    <li> <a href="~/Home/SaveToCart"> 4 </a> </li>
+                    <li> <a href="~/Home/SaveToCart"> 5 </a> </li>
+                </ul>
+
+            </div>
+        </div>
+    }
 
 
-</div>
-}
+

@@ -173,6 +173,7 @@
     <Content Include="Views\Home\AddToCart.cshtml" />
     <Content Include="Views\Home\SaveToCart.cshtml" />
     <Content Include="Views\Home\MyCart.cshtml" />
+    <Content Include="Views\Home\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -50,9 +50,8 @@ namespace damacana.Controllers
         }
 
         public static List<Product> cartproducts = new List<Product>(){
+
         };
-        
- 
 
         public ActionResult AddToCart()
         {
@@ -73,8 +72,26 @@ namespace damacana.Controllers
 
         public ActionResult MyCart()
         {
+
              return View(cartproducts);
         }
+
+
+
+        decimal Total;
+        [HttpGet]
+        public ActionResult Buy()
+        {
+            
+            Purchase purchase = new Purchase();
+            foreach (Product q in purchase.purchaselist)
+            {
+                Total += purchase.TotalPrice ;
+            }
+
+            return View(Total);
+        }
+
 
         public ActionResult About()
         {
