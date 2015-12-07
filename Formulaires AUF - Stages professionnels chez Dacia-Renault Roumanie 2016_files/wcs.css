@@ -1,0 +1,338 @@
+/* L’utilisation exclusive de la police libre OPEN SANS est indispensable à la
+ * cohésion graphique de l’ensemble des réalisations.
+ */
+@import url(assets/fonts/opensans.css);
+@import url(/qo/css/qommon.css);
+
+
+a {
+	color: #702283;
+}
+
+html, body {
+	margin: 0;
+	background: #E5E5E5;
+	font-family: "Open Sans";
+}
+
+/* Un espace de 15px doit être reservé entre le haut
+ * du site et le bord supérieur du navigateur.
+ */
+body {
+	margin-top: 15px;
+}
+
+#wrapper {
+	position: relative;
+	width: 1170px;
+	margin: 0 auto;
+}
+
+/* L’ensemble créé par le logo de l’agence,
+ * la bayadère 5 couleurs et le sigle AUF sont
+ * indissociables et leur positions sont fixes.
+ */
+
+#tetiere {
+	/* Le fond de la tétière est blanc. */
+	background: white url(assets/logo-droite.png) top right no-repeat;
+	height: 150px;
+	position: relative;
+	z-index: 100;
+}
+
+#bandeau-couleurs {
+	display: block;
+	width: 914px;
+	height: 8px;
+	background: url(assets/bande-couleurs.png) top left no-repeat;
+	position: absolute;
+	left: 170px;
+	top: 8px;
+}
+
+h1#auf {
+	margin: 0;
+	position: absolute;
+}
+
+h1#site {
+	margin: 0;
+	display: table-cell;
+	vertical-align: bottom;
+	height: 121px;
+	padding-left: 200px;
+	font-size: 400%;
+	font-weight: normal;
+	color: #8DBE23;
+}
+
+h1#site a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+/* L’angle et la hauteur de cette tétière peuvent
+ * être modifiés librement.
+ * L’angle créé ne doit jamais être égal à 90°.
+ */
+div#tetiere-bottom {
+	position: absolute;
+	bottom: -20px;
+	height: 50px;
+	width: 100%;
+	background: white;
+	z-index: -10;
+	-ms-transform: skewY(2deg);
+	-webkit-transform: skewY(2deg);
+	transform: skewY(2deg);
+}
+
+#corps {
+	margin-top: 70px;
+	background: white;
+	color: #1c1c1c;
+}
+
+#corps h2 {
+	color: #AA0A2F;
+	margin: 0;
+	padding: 1ex;
+}
+
+
+/* steps */
+
+div#steps {
+	float: left;
+	width: 240px;
+	border: 0px solid #E5E5E5;
+	border-width: 0 30px 15px 0px;
+}
+
+div#steps h2 {
+	display: none;
+}
+
+div#steps ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+div#steps span.marker {
+	float:left;
+	font-size: 250%;
+	font-weight:bold;
+	color: #999;
+	margin: -5px 0 0 ;
+	position: relative;
+	top: -3px;
+}
+
+div#steps ol li {
+	margin: 1ex 0;
+	color: #fff;
+	letter-spacing:1px;
+	padding: 1ex;
+	font-weight: bold;
+	background: #AAAAAA;
+}
+
+div#steps ol li:first-child {
+	margin-top: 0;
+}
+
+div#steps ol li.current {
+	background: #1D9DD9;
+	color:#fff;
+}
+
+div#steps ol li.current .marker {
+	color: white;
+	text-shadow: black 0 0 1px;
+}
+
+div#steps ol ul {
+	background: white;
+	margin: 0 -1ex;
+	padding: 0px;
+}
+
+div#steps ol li.current ul li.current {
+	font-weight: bold;
+}
+
+div#steps li ul li {
+	background: #AAAAAA;
+	margin: 0;
+	font-weight: normal;
+	font-size: 90%;
+	display:block;
+	color: #666;
+	text-align: left;
+	padding-left: 30px;
+}
+
+div#steps li ul li.current {
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+}
+
+div#steps li.current ul li {
+	color: #535353;
+}
+
+div#steps li.current ul li.current {
+	background: white;
+}
+
+
+div#steps + form {
+	background: white;
+	float: left;
+	width: 870px;
+	overflow: hidden;
+	padding: 15px;
+	margin-bottom: 15px;
+}
+
+form h3 {
+	margin-top: 0;
+}
+
+div#bas-de-page {
+	clear: both;
+	background: #1C1C1C;
+	color: white;
+	margin-top: 80px;
+}
+
+div#bas-de-page img {
+	position: relative;
+	left: 50px;
+	top: -50px;
+	margin: 0;
+}
+
+div#bas-de-page p {
+	margin: 0 0 0 200px;
+	position: relative;
+	top: -70px;
+}
+
+div#bas-de-page span {
+	padding-left: 50px;
+	padding-right: 10px;
+}
+
+div#bas-de-page a {
+	padding: 0 10px;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+div.ident-content {
+	padding: 15px;
+}
+
+div.ident-content h3 {
+	color: #AA0A2F;
+	margin: 0;
+	padding: 1ex;
+}
+
+div#welcome-message {
+	padding: 15px 15px 0 15px;
+}
+
+div#summary,
+div#evolution-log {
+	padding: 0 15px;
+}
+
+p#logout,
+p#login {
+	position: absolute;
+	top: 140px;
+	right: 10px;
+	z-index: 100;
+}
+
+p#logout a,
+p#login a {
+	font-weight: bold;
+}
+
+.category {
+	padding-bottom: 1ex;
+}
+
+div.welcome-warning {
+	margin: 10px;
+	border: solid red 5px;
+	padding: 10px;
+	font-size: 120%;
+}
+
+/* customisation AUF des formulaires */
+
+/* les champs select ne doivent pas sortir de la page */
+select { max-width: 100%; font-size: 110%; }
+
+/* titre, sous-titres */
+h3 { clear: both; }
+h4 { clear: both; }
+
+.left {
+    clear: none;
+    display: inline;
+    float: left;
+}
+
+.readonly { readOnly: true; }
+
+div.widget { clear: none; margin-bottom: 0.5em;}
+div.RadiobuttonsWidget { display: block; clear: both; }
+div.RadiobuttonsWidget div.title { display: inline; clear: none; float: left; margin-right: 5px; }
+div.RadiobuttonsWidget div.content { display: inline; clear: none; }
+div.RadiobuttonsWidget div.content li { width: 10%; }
+
+.to_left  { display: inline; clear: none; width: 45%; }
+.to_right { display: inline; float: right; left: 50%; clear: none; width: 45%; }
+.to_right2 { display: inline; float: right; left: 25%; clear: none; width: 20%; }
+.to_right60 { display: inline; float: right; left: 25%; clear: none; width: 60%; }
+.to_right70 { display: inline; float: right; left: 25%; clear: none; width: 70%; }
+
+.border { border: 1px red dashed; }
+
+.left { float: left; clear: none; display: inline; }
+.right { float: right; clear: none; display: inline; }
+
+.clear_left { clear: right; }
+.clear_right { clear: right; }
+.clear_both { clear: both; }
+
+.width20 { width: 20%; }
+.width24 { width: 24%; }
+.width25 { width: 25%; }
+.width29 { width: 29%; }
+.width30 { width: 30%; }
+.width34 { width: 34%; }
+.width39 { width: 39%; }
+.width45 { width: 45%; }
+.width49 { width: 49%; }
+.width50 { width: 50%; }
+.width60 { width: 60%; }
+.width65 { width: 65%; }
+.width70 { width: 70%; }
+.width75 { width: 75%; }
+.width80 { width: 80%; }
+.width99 { width: 99%; }
+.width100 { width: 100%; }
+.widthauto { width: auto; }
+
+.leftmargin2 { margin-left: 2%; }

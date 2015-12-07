@@ -11,5 +11,6 @@ namespace damacana.Models
         public virtual User User { get; set; }
         public int UserId{ get; set; }
         public List<Product> cartproducts { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

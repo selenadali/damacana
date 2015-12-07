@@ -1,25 +1,40 @@
 ﻿@using damacana.Models
 
 @model List<damacana.Models.Product>
+@using System.Collections.Generic
 
 @{
     ViewBag.Title = "MyCart";
 }
 
-<a href="@Url.Action("AddToCart")"> Add New Product To Cart</a>
-<a href="@Url.Action("Buy")"> Buy </a>
-
 <h2>MyCart</h2>
 
-@foreach (Product p in Model)
+@foreach (var p in Model)
 {
-    <h2>
-        @p.Name (@p.Id)
-    </h2>
-    <p>
-        @p.Price
-    </p>
+    <table style="width:27%">
+
+        <tr>
+
+
+            <td>
+                <div class="alert alert-success" role="alert">
+                    <h4 class="media-middle">@p.Name</h4>
+                    <b>@p.Price Price</b>
+                    <a class="btn btn-default" href="@Url.Action("DeleteInCart", new { Name = p.Name})"><b>Delete In Cart</b></a>
+
+
+                </div>
+            </td>
+         </tr>
+    </table>
     // <input class="btn btn-default" type="button" value="Add Product to Cart">
 
 }
+<a class="btn btn-default" href="@Url.Action("Buy", new { x = Model })"><b> Buy </b></a>
+<nav>
+    <ul class="pager">
+        <li><a href="@Url.Action("Index")">Home Page</a></li>
+
+    </ul>
+</nav>
 

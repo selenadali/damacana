@@ -75,56 +75,30 @@ namespace damacana.Controllers
             return View(product);
         }
 
-        public ActionResult AddToCart()
+        public ActionResult AddToCart(string Name)
         {
-            Cart cart= new Cart()
-            {
-               
-            };
-            return View(cart);
-        }
+            // TODO find product from this.products
+            Product product = new Product(); // lıstenın ıcınde buldugumuz product
 
-        [HttpGet]
-        public ActionResult SaveToCart(string Name)
-        {
-            Product product = new Product();
-            foreach (var pr in products)
+
+            // sepete ekleme işlemi
+            foreach (var p in products)
             {
-                if (pr.Name == Name)
+                if (p.Name == Name)
                 {
-                    product.Name = pr.Name;
-                    product.Price = pr.Price;
-                    product.Id = pr.Id;
+                    product.Name = p.Name;
+                    product.Price = p.Price;
+                    product.Id = p.Id;
+                    cartproducts.Add(p);
+                    break;
                 }
-            }
+          }
 
-            cartproducts.Add(product);
-            return View(cartproducts);
+            return View(product); //sepete eklenmistir goruntusu.
         }
-   
-        public ActionResult MyCart()
-        {
 
-             return View(cartproducts);
-        }
-/*
-       
-        public ActionResult SaveToCart(string name)
-        {
-            Product product = new Product();
 
-            foreach (var pr in products)
-            {
-                if (pr.Name == name)
-                {
-                    product.Name = pr.Name;
-                    product.Price = pr.Price;
-                    product.Id = pr.Id;
-                }
-            }
-        return View(product);
-        }
-        */
+
         public ActionResult MyPurchase()
         {
             return View(purchases);
@@ -132,23 +106,81 @@ namespace damacana.Controllers
         }
 
         decimal Total;
-        [HttpGet]
-        public ActionResult Buy()
-        {
-            
-            Purchase purchase = new Purchase();
-            foreach (Product q in purchase.purchaselist)
-            {
-                Total += purchase.TotalPrice ;
-            }
-
-            return View(Total);
-        }
-
-
        
 
+        public ActionResult DeleteProduct(string Name)
+       {
+           foreach (Product p in products)
+           {
+               if (p.Name == Name)
+               {
+                   products.Remove(p);
+                   break;
+               }
+           }
+           return View();
+       }
+      
+        public ActionResult DeleteInCart(string Name){
+                      foreach(Product p in cartproducts)
+            {
+                if (p.Name == Name)
+                {
+                    cartproducts.Remove(p);
+                    break;
+                }
+            }
+           return View();
+            }
 
+
+        public ActionResult EditProduct(string Name)
+        {
+            Product product = new Product();
+            foreach (Product p in products)
+            {
+                if (p.Name == Name)
+                {
+                    product.Name = p.Name;
+                    product.Price = p.Price;
+                    product.Id = p.Id;
+
+                    products.Remove(p);
+                    break;
+                }
+            }
+            return View(product);
+        }
+        public ActionResult Editt(Product product){
+            products.Add(product);
+            return View(product);
+        }
+
+        int i = 1;
+        public ActionResult Buy()
+        {
+            Cart cart = new Cart();
+            cart.TotalPrice = 0;
+            cart.cartproducts = new List<Product>();
+            cart.Id = i;
+            cart.UserId = 1;
+            Product product = new Product();
+            foreach (Product p in cartproducts)
+            {
+                product.Id = p.Id;
+                product.Name = p.Name;
+                product.Price = p.Price;
+                cart.cartproducts.Add(product);
+                cart.TotalPrice += p.Price;
+                i++;
+            }
+            return View(cart);
+        }
+
+        public ActionResult MyCart()
+        {
+            return View(cartproducts);
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
